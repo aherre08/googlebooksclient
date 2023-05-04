@@ -37,8 +37,8 @@ function App() {
   const bookloader = () => {
     if (loading) {
       return (
-        <div className='d-flex justify-content-center mt-3'>
-          <Spinner style={{ width: '3rem', height: '3rem' }} />
+        <div className="spinner-container">
+          <div className="spinner-line"></div>
         </div>
       );
     } else {
@@ -81,25 +81,28 @@ function App() {
 
     <div>
       <ToastContainer />
-      <Helmet>
-        <title>GoogleBooks</title>
-      </Helmet>
-      <h1 className='title'> Google Books </h1>
-      <div>
-        <InputGroup>
-          <Label for='query'>Título: </Label>
-          <Input id='query' placeholder='Introduce el titulo del libro a buscar' value={query} onChange={e => setQuery(e.target.value)} />
-
-          <Button className='searchButton' onClick={searchBooks}>
-            Buscar
-          </Button>
-          <FormGroup>
-          <div class="formGroup">
-            <Label for='maxResults'>Nº máximo de resultados: </Label>
-            <Input id='maxResults' type='number' placeholder='Introduce el nº maximo de resultados a mostrar' value={maxResults} onChange={e => setMaxResults(e.target.value)} min={1} max={40} />
-          </div>
-          </FormGroup>
-        </InputGroup>
+      <div style={{ textAlign: 'center' }}>
+        <Helmet className="headTittle">
+          <title>Google Books</title>
+          <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+        </Helmet>
+        <h1 className='title'> Google Books </h1>
+        <div>
+          <InputGroup>
+            {/* <Label for='query'>Título: </Label>
+            */}
+            <div class="search-container">
+              <Input className="inputSearch" id='query' placeholder='Introduce el titulo del libro a buscar' value={query} onChange={e => setQuery(e.target.value)} />
+              <Button type="submit" className='searchButton' onClick={searchBooks}> Buscar <i class="fa fa-search"></i></Button>
+            </div>
+            <FormGroup>
+              <div class="formGroup">
+                <Label className="numResultsLabel" for='maxResults'>Nº máximo de resultados: </Label>
+                <Input className="inputSearch" id='maxResults' type='number' placeholder='Introduce el nº maximo de resultados a mostrar' value={maxResults} onChange={e => setMaxResults(e.target.value)} min={1} max={40} />
+              </div>
+            </FormGroup>
+          </InputGroup>
+        </div>
       </div>
       {bookloader()}
     </div>

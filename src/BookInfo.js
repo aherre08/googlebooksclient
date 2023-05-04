@@ -16,7 +16,7 @@ const BookInfo = ({
     <div style={{ textAlign: 'center' }}>
       <img class="image" alt="Sample" src={image} />
       <CardBody>
-        <CardTitle tag="h5">
+        <CardTitle className="custom-title" tag="h5">
           {title}
         </CardTitle>
         <CardSubtitle
